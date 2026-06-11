@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>medical_waste_robot</name>
+  <version>0.1.0</version>
+  <description>Autonomous Medical Waste Management Robot using ROS2 and YOLO</description>
+  <maintainer email="sindhukrish1604@gmail.com">Sindhu Krish</maintainer>
+  <license>MIT</license>
+
+  <author email="sindhukrish1604@gmail.com">Sindhu Krish</author>
+
+  <!-- Dependencies -->
+  <depend>ament_cmake</depend>
+  <depend>ament_cmake_python</depend>
+  <depend>rclcpp</depend>
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>trajectory_msgs</depend>
+  <depend>nav2_core</depend>
+  <depend>nav2_bringup</depend>
+  <depend>slam_toolbox</depend>
+  <depend>realsense2_camera</depend>
+  <depend>sick_tim</depend>
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+  <depend>cv_bridge</depend>
+  <depend>image_transport</depend>
+
+  <!-- Build tools -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+
+  <!-- Export -->
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
