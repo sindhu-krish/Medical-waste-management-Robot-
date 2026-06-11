@@ -1,0 +1,84 @@
+# Medical Waste Management Robot Parameters
+
+robot:
+  name: 'medical_waste_robot'
+  type: 'humanoid'
+  base_frame: 'base_link'
+  
+  # Motion limits
+  max_speed: 1.5           # m/s
+  max_angular_velocity: 1.0  # rad/s
+  max_acceleration: 0.5    # m/s^2
+
+# Arm configuration
+arm:
+  name: 'tiago_arm'
+  dof: 7                    # Degrees of freedom
+  max_reach: 1.2           # meters
+  payload_capacity: 2.0    # kg
+  max_velocity: 1.0        # rad/s
+  max_acceleration: 0.5    # rad/s^2
+
+# Gripper configuration
+gripper:
+  name: 'tiago_gripper'
+  max_force: 100           # Newtons
+  open_position: 0.0
+  close_position: 1.0
+  speed: 0.05              # m/s
+
+# Waste bin positions (workspace frame)
+bins:
+  bin_1:  # General waste (green)
+    position: [0.3, 0.4, 0.0]
+    orientation: [0, 0.707, 0, 0.707]
+    capacity: 100           # liters
+  bin_2:  # Infectious waste (red)
+    position: [0.3, 0.0, 0.0]
+    orientation: [0, 0.707, 0, 0.707]
+    capacity: 80            # liters
+  bin_3:  # Sharps/Hazardous (orange)
+    position: [0.3, -0.4, 0.0]
+    orientation: [0, 0.707, 0, 0.707]
+    capacity: 50            # liters
+
+# Home position
+home_position:
+  position: [0.2, 0.0, 0.5]
+  orientation: [0, 0.707, 0, 0.707]
+
+# Safety parameters
+safety:
+  min_obstacle_distance: 0.3  # meters
+  emergency_stop_enabled: true
+  collision_detection: true
+  force_torque_monitoring: true
+  max_joint_torque: 150        # Nm
+
+# Sensor configuration
+sensors:
+  camera:
+    topic: 'camera/rgb/image_raw'
+    depth_topic: 'camera/depth/image_raw'
+    fps: 30
+    resolution: [1280, 960]
+  
+  lidar:
+    topic: 'scan'
+    range_max: 10.0  # meters
+  
+  imu:
+    topic: 'imu/data'
+
+# Task management
+task_management:
+  max_tasks_queue: 10
+  task_timeout: 300           # seconds
+  retry_attempts: 3
+  retry_delay: 5              # seconds
+
+# Waste detection thresholds
+waste_detection:
+  confidence_threshold: 0.5
+  bin_full_threshold: 0.9     # 90% full
+  waste_unit_volume: 0.5      # liters per waste item
